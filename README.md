@@ -1,4 +1,4 @@
-# Go_API
+# CRUD API with Golang
 
 GOlang Building Restful API with postgre Documentation:
 *Installation and "hello world"
