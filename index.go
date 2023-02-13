@@ -6,20 +6,34 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
 )
 
-const (
-	DB_USER     = "postgres"
-	DB_PASSWORD = "anas@2258"
-	DB_NAME     = "movies"
-)
+// const (
+// 	DB_USER     = "postgres"
+// 	DB_PASSWORD = "anas@2258"
+// 	DB_PASSWORD     = "movies"
+// )
+
+func goDotEnvVariable(key string) string {
+	err := godotenv.Load(".env")
+
+	checkErr(err)
+
+	return os.Getenv(key)
+}
 
 // DB set up
 func setupDB() *sql.DB {
-	dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable", DB_USER, DB_PASSWORD, DB_NAME)
+	userName := goDotEnvVariable("DB_USER")
+	password := goDotEnvVariable("DB_PASSWORD")
+	dbName := goDotEnvVariable("DB_NAME")
+
+	dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable", userName, password, dbName)
 	db, err := sql.Open("postgres", dbinfo)
 
 	checkErr(err)
