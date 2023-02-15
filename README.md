@@ -4,10 +4,11 @@ GOlang Building Restful API with postgre Documentation:
 *Installation and "hello world"
 - Download and install GO for window/mac/linux from "https://go.dev/dl/".
 - Open terminal and type command "go version" to check if its installed.
-(For vs code) -
+- (For vs code) 
  - Search "GO" in extensions and install GO in VS Code. 
  - Click ctrl+shift+p  and search "Go:Install current package". Check all in list and press install .
 - Create folder and file "hello.go" and paste this boilerplate code 
+-
 "
 package main
 import "fmt"
